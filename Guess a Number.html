@@ -3,48 +3,7 @@
         <title>
             WEBPAGE
         </title>
-        <style>
-            body{
-                font-family: Arial, Helvetica, sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-            }
-            .container{
-                width: 450px;
-                padding: 20px;
-                text-align: center;
-                border-radius: 25px;
-                background: #e0e0e0;
-                box-shadow: 20px 20px 60px #bebebe -20px -20px 60px #ffffff;
-            }
-            h1{
-                color: #ff0000;
-                padding: 20px 0;
-            }
-            input[type=text]{
-                width: 60%;
-                padding: 8px;
-                margin: 10px 0;
-                box-sizing: border-box;
-            }
-            button{
-                background-color: #45a049;
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            button:hover{
-                background-color: #45a049;
-            }
-            #message{
-                margin-top: 20px;
-                color: #333;
-            }
-        </style>
+        <link rel="stylesheet" href="guess.css">
     </head>
     <body>
         <div class="container">
@@ -54,32 +13,8 @@
             <button id="guessSubmit">SUBMIT GUESS</button>
             <p id="message"></p>
         </div>
-        <script>
-            const randomNumber=Math.floor(Math.random()*100)+1;
-            let attempts=0;
-            document.getElementById('guessSubmit').addEventListener('click',function()
-        {
-            const guess=parseInt(document.getElementById('guessField').value);
-            let message='';
-            if(isNaN(guess)||guess<1||guess>100){
-                message='Please enter a valid number between 1 to 100.';
-            }else if(guess===randomNumber){
-                message=`Congratulations You Guessed the number ${randomNumber}.`;
-                document.getElementById('guessField').disabled = true;
-                this.disabled = true;
-            }
-            else if(guess<randomNumber){
-                message='Too Low! Guess again';
-
-            }
-            else{
-                message='Too high! Guess again';
-            }
-            document.getElementById('message').textContent=message;
-            document.getElementById('guessField').value='';
-            document.getElementById('guessField').focus();
-        }
-        );
+        <script src="guess.js">
+           
         </script>
     </body>
 </html>
